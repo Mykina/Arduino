@@ -1,8 +1,8 @@
 int led = 9;                 // nastaví 
 int cekani = 1000;           //delay = 1000ms
 int tlacitko = 11;
-int cteni = 0;
-int cteniOld = 1;
+int cteni = 1;
+int cteniOld = 0;
 int casRozdil = 0;
 unsigned long casMic = 0;
 unsigned long casMicOld = 0;
@@ -19,16 +19,16 @@ void setup()
 void loop() 
 {
  cteniOld = cteni;
- casMicOld=casMic;
  cteni = digitalRead(tlacitko);
- casMic=millis();
- if (cteni!=cteniOld); 
+ 
+ if (cteni != cteniOld)
  {
+  casMic=millis();
   casRozdil=casMic-casMicOld;
    if(casRozdil>80)
    {
     tisk();
-    casMicOld=casMic;
+    casMicOld=casMic;                                                 
    }
  }
  
@@ -51,7 +51,7 @@ void tisk()
     }
      Serial.print(cteni);
      Serial.print("-");
-      Serial.print(casRozdil);
-        Serial.print(",");
+     Serial.print(casRozdil);
+     Serial.print(",");
 }
-
+kkk
