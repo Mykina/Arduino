@@ -54,4 +54,3 @@ void tisk()
      Serial.print(casRozdil);
      Serial.print(",");
 }
-kkk
