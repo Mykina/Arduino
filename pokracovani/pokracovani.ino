@@ -31,15 +31,7 @@ void loop()
     casMicOld=casMic;                                                 
    }
  }
- 
- if (cteni == HIGH) 
-  {
-    digitalWrite(led,HIGH);
-  }
- else 
- {
-  digitalWrite(led,LOW);
- }
+  ledka(cteni, led);
 }
 
 void tisk()
@@ -53,4 +45,16 @@ void tisk()
      Serial.print("-");
      Serial.print(casRozdil);
      Serial.print(",");
+}
+
+void ledka(int cteni, int led)
+{
+  if (cteni == HIGH) 
+  {
+    digitalWrite(led,HIGH);
+  }
+ else 
+ {
+  digitalWrite(led,LOW);
+ }
 }
