@@ -47,7 +47,9 @@ void tisk()
      Serial.print(",");
 }
 
-void ledka(int cteni, int led)
+void ledka(int cteni, int led)	// Názvy mají odpovídat obsahu (LedSvitiAnoNe)
+								// vyměnít pořadí parametrů (led je důležitější než jeho stav
+								// přejmenovat cteni - neodpovídá obsahu a významu v metode ledka
 {
   if (cteni == HIGH) 
   {
