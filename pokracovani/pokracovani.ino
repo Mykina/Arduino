@@ -31,7 +31,7 @@ void loop()
     casMicOld=casMic;                                                 
    }
  }
-  ledka(cteni, led);
+  ledka(led, cteni);
 }
 
 void tisk()
@@ -47,11 +47,9 @@ void tisk()
      Serial.print(",");
 }
 
-void ledka(int cteni, int led)	// Názvy mají odpovídat obsahu (LedSvitiAnoNe)
-								// vyměnít pořadí parametrů (led je důležitější než jeho stav
-								// přejmenovat cteni - neodpovídá obsahu a významu v metode ledka
+void ledka(int led, int stav)
 {
-  if (cteni == HIGH) 
+  if (stav == HIGH) 
   {
     digitalWrite(led,HIGH);
   }
