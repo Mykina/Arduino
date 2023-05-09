@@ -1,4 +1,4 @@
-int led = 9;                 // nastaví 
+int led = 9;                 // nastaví 					//taky předpokládám budete programovat potenciometr, pak je špatně název programu
 int cekani = 1000;           //delay = 1000ms
 int tlacitko = 11;
 int cteni = 1;
