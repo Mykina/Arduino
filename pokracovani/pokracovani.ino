@@ -1,4 +1,6 @@
-int led = 9;                 // nastaví 
+int led = 9;
+int ledzluta = 6;
+int ledzelena = 8;                 
 int cekani = 1000;           //delay = 1000ms
 int tlacitko = 11;
 int cteni = 1;
@@ -7,14 +9,25 @@ int casRozdil = 0;
 unsigned long casMic = 0;
 unsigned long casMicOld = 0;
 int pocet = 0;
+int meter = 0;
+int pinmeter = A0;
 
 void setup() 
 {
  pinMode(led,OUTPUT);
  pinMode(tlacitko,INPUT);  // put your setup code here, to run once:
  Serial.begin(9600);
- Serial.print("pripojeno");
+ Serial.print("pripojeno");g
 }
+
+meter = analogRead(pinmeter);
+if (meter < 330)
+{
+  digitalWrite(ledzluta, HIGH)
+  digitalWrite(ledzelena, LOW)
+  digitalWrite(led, LOW)
+  
+  
 
 void loop() 
 {
