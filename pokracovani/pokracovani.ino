@@ -11,26 +11,47 @@ unsigned long casMicOld = 0;
 int pocet = 0;
 int meter = 0;
 int pinmeter = A0;
+int radek=0;
 
 void setup() 
 {
  pinMode(led,OUTPUT);
+ pinMode(ledzluta,OUTPUT);
+ pinMode(ledzelena,OUTPUT);
  pinMode(tlacitko,INPUT);  // put your setup code here, to run once:
  Serial.begin(9600);
- Serial.print("pripojeno");g
+ Serial.print("pripojeno");
 }
 
-meter = analogRead(pinmeter);
-if (meter < 330)
-{
-  digitalWrite(ledzluta, HIGH)
-  digitalWrite(ledzelena, LOW)
-  digitalWrite(led, LOW)
-  
-  
+
+
+
 
 void loop() 
 {
+meter = analogRead(pinmeter);
+tisk(meter);
+ if (meter < 330)
+ {
+  digitalWrite(ledzluta, HIGH);
+  digitalWrite(ledzelena, LOW);
+  digitalWrite(led, LOW);
+ } 
+
+ if (meter > 330 && meter < 660)
+ {
+  digitalWrite(ledzluta, LOW);
+  digitalWrite(ledzelena, HIGH);
+  digitalWrite(led, LOW);
+ }
+
+ if (meter > 660)
+ {
+  digitalWrite(ledzluta, LOW);
+  digitalWrite(ledzelena, LOW);
+  digitalWrite(led, HIGH);
+ }
+
  cteniOld = cteni;
  cteni = digitalRead(tlacitko);
  
@@ -40,24 +61,24 @@ void loop()
   casRozdil=casMic-casMicOld;
    if(casRozdil>80)
    {
-    tisk();
+    //tisk();
     casMicOld=casMic;                                                 
    }
  }
   ledka(led, cteni);
 }
 
-void tisk()
+void tisk(int vyst)
 {
-   if(pocet>15)
-    { 
-     Serial.println();
-     pocet=0;
-    }
-     Serial.print(cteni);
-     Serial.print("-");
-     Serial.print(casRozdil);
-     Serial.print(",");
+  if (radek>20) 
+   { Serial.println();
+    radek = 0;
+  }
+    
+   Serial.print(vyst);
+   Serial.print("-");
+   Serial.print(",");
+   radek=radek+1;
 }
 
 void ledka(int led, int stav)
