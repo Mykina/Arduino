@@ -10,7 +10,7 @@ unsigned long casMic = 0;
 unsigned long casMicOld = 0;
 int pocet = 0;
 int meter = 0;
-int pinmeter = A0;
+int pinmeter = A1;
 int radek=0;
 
 void setup() 
@@ -31,21 +31,21 @@ void loop()
 {
 meter = analogRead(pinmeter);
 tisk(meter);
- if (meter < 330)
+ if (meter < 682)
  {
   digitalWrite(ledzluta, HIGH);
   digitalWrite(ledzelena, LOW);
   digitalWrite(led, LOW);
  } 
 
- if (meter > 330 && meter < 660)
+ if (meter > 681 && meter < 852)
  {
   digitalWrite(ledzluta, LOW);
   digitalWrite(ledzelena, HIGH);
   digitalWrite(led, LOW);
  }
 
- if (meter > 660)
+ if (meter > 852)
  {
   digitalWrite(ledzluta, LOW);
   digitalWrite(ledzelena, LOW);
