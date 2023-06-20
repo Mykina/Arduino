@@ -24,9 +24,6 @@ void setup()
 }
 
 
-
-
-
 void loop() 
 {
 meter = analogRead(pinmeter);
